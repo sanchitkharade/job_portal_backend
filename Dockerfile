@@ -2,6 +2,6 @@ FROM maven:3.8.5-openjdk-17 AS build
 COPY . .
 RUN mvn clean package -DskipTests
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/JobPortal-0.0.1-SNAPSHOT.jar JobPortal.jar
+COPY --from=build /target/Job-Portal-0.0.1-SNAPSHOT.jar Job-Portal.jar
 EXPOSE 8080
-ENTRYPOINT [ "java","-jar","JobPortal.jar" ]
+ENTRYPOINT [ "java","-jar","Job-Portal.jar" ]
